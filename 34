@@ -1,0 +1,13 @@
+# Update Packages
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl git jq lz4 build-essential cmake perl automake autoconf libtool wget libssl-dev
+
+# Install Go
+sudo rm -rf /usr/local/go
+curl -L https://go.dev/dl/go1.22.3.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
+source .bash_profile
+go version
+# Clone Airchains repositories
+git clone https://github.com/airchains-network/evm-station.git
+git clone https://github.com/airchains-network/tracks.git
